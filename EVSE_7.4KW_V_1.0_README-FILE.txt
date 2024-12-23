@@ -1,0 +1,274 @@
+22-10-24
+V1.0
+
+->New Common OTA (wi-fi & GSM) Functionality Implemented.
+  -- URL : http://34.100.138.28:80/firmware/updater.php --
+
+-> New OTA PHP Script Implemented in Server.
+ -- updater.php --
+
+->This OTA functionality Working with Java Script(Implemented by Rafi)to download OTA.
+  1. Basic OTA download Test Done.
+  2. Need to Test Full Flezed
+ -- URL : http://34.100.138.28:80//ota/v1/master/DeviceID
+
+
+
+16-09-24
+V0.3.4
+
+->Fishing state start implemented in Both RFID and Remote start.
+
+-> Relay weld detection implemented (present it is disabled).
+
+/**********************************************************************/
+10-09-2024
+V0.3.3
+
+-> Wifi SSID String length increased from 15 to 64 characters.
+
+
+/**********************************************************************/
+03-09-24
+V0.3.2
+
+->New display pages updated.(20X4)
+
+
+/***************************************************************************/
+20-08-2024
+V0.3.1
+
+
+
+->RFID Issue In offline Fixed.
+
+
+->offline OTA implemented 
+   
+   OTA :
+      Wifi ssid : evre_admin
+
+      wifi password :evre_password
+
+/********************************************************************************************/
+02-08-24
+V0.3.0
+
+->Relay triggering issue in stop fixed.
+
+/*******************************************************************************************
+
+V0.2.9
+ 
+-> RFID Storage in offline Implemented as of now this feature disabled.
+
+
+/**************************************************************************************************
+02-07-24
+V0.2.7
+
+->session starting issue fixed.
+->Disconnected state with stop implemented..
+
+
+/***********************************************************************************************/
+25-06-24
+V0.2.6
+
+-> LCD Display logic updated.
+->wifi OTA issue fixed.
+
+->suspended state changes from 1846 to 1799.
+disconnected state changes from 1845 to 1800.
+/**************************************************************************************************
+->20-06-24
+V0.2.5
+->LCD display enabled.
+
+->BLE configuration for Current limit implemented.
+  
+-> BLE(app visibility)  issue fixed.
+
+
+
+
+*************************************************************************************************************************************/
+->10-06-24
+v0.2.4
+
+->CONTROL_PILOT_LOGIC Updated.(New freertos task created)
+-> ADC Reading changed.(every 100 samples).
+->Mutax lock integrated for control pilot.
+-> session resume integrated. you can configure form BLE App. 
+
+
+
+
+/***************************************************************************************************************************************************************************************/
+->06-06-24
+->V0.2.3
+
+Plug and play: just connect the gun the vehicle session will start both state (B and C).configure through BLE app.
+ 
+
+logs: device logs are updated.
+
+configuration of threshold using BLE : You can configure the over voltage, under voltage, over current, over temperature values using BLE App.
+
+/*************************************************************************************************************************************************************************************************/
+->25-04-24
+->V0.2.2
+
+->BLE configuration changed 
+   BLE                    BOOT
+1) device name      ->   charge point vendor
+2) charge point id  ->   charge box serial number.
+3) commissiond by   ->   charge point model.
+
+Note: when your configuring the device app feild must be cleard.
+
+
+->device will work on wifi,gsm and offline.
+
+BLE APP:
+
+offline              ->  only offline working
+GSM                  ->  only gsm (online)
+WIFI                 ->  only wifi(online)
+ethernet + wifi      ->  offline + wifi(online)
+ethernet + gsm       ->  offline + gsm(online)
+
+->i2c display integration completed (if any changes please let met know. we will change accroding to the requriments).
+
+->suspended ev status notification implemented.
+
+-> suspended state LED state blinking blue.
+
+->soft reset implemented.
+
+-session resume implemented.As of now we are disabled.
+
+
+
+Note: LED's not upto the requriment in offline state.
+
+
+/****************************************************************************************************************************************/
+->23-03-24
+->v0.2.1
+-> LED indication for GFCI fault fixed
+->energy sample meter value incresed(20cr)
+->device id replaced with charge point id in OTA update.
+/*********************************************************
+->20/03/24. 
+->new firmware update.
+->ver 0.2.0
+
+->remote stop issue fixed.
+->relay stop(150ms)
+
+/**********************************************
+
+->08/03/24. 
+->new firmware update.
+->ver 0.1.9
+_>ADC reading logic changed.
+->Fimaware status implementaed.
+->offline to online status notification implemented.
+->reamoved suspended state stop.
+/**************************************************************************************************************************************/
+->15/02/24. 
+->new firmware update.
+->ver 0.1.8
+
+1)updated wh value to the server.
+2)BLE Commisioning logic changed.
+
+
+
+
+/**************************************************************************************************************************************/
+->09/12/23. 
+->new firmware update.
+->ver 0.1.7
+1)meter value issue fixed.
+2)Invalid Metervalues are Updating whenever Trigger Messages for Metervalues Message
+3)Stop transaction when suspended EV occurred over  duration of 10 minutes
+
+
+
+/***************************************************************************************************************************************/
+->04/12/23. 
+->new firmware update.
+->ver 0.1.6
+
+main fixes:
+1) connection issue with adhani server (CPMS ELOCITY) fixed.
+2) Zero consumption of meter vlaues fixed.
+3) session start in the state c condition fixed,that is it will start only state B  .
+4) energy consumption issue in offline, that is meter values fixed.
+5) FOTA URL static and FOTA update trigger from CPMS ELOCITY server.
+
+-------------------------------------------------------------------------------------------------------------
+Known issues:
+
+*issue with earth detection when there is power loss
+*multi status notification issue
+*power recycle while session on going
+*sudden disconection of connecter
+*meter values updating kW values need to validate
+
+
+/************************************************************************************************************************************/
+->11/11/23. 
+->new firmware update.
+->ver 0.1.5
+
+1) wifi implimentation done. this code work with both wifi and 4G.                    
+      
+      note: previously code works on 4g
+
+
+
+2)ADC values changes state SUS->1850 TO 1550 &state DIS->2100 TO 1850.
+    
+      note: previously code SUS->1750 TO 1550 &state DIS->2100 TO 1750.
+
+3)RIFD & ENERGY meter logic changed.
+     
+       note: previously code RIFD reads slowly.
+
+4)wifi Reconnet issue fixed.
+
+        note: previously code if wifi disconnect it will stock on websocket loop.
+
+
+
+/********************************************************************************************************************************/
+
+
+1) Keep Alive is enable. 
+2) Offline emergency stop issue fixed. 
+3) current measurment calibration need to be fixed - need to finalise the stable CT
+4) Need to maintain 12.1V at SMPS
+5) Need to use EVRE configuration Application to change/configure the charger
+6) Please configure the charge point ID in the configuration application with the device serial number. 
+7) All the chargers show ESP32 as default BLE name, later we can congifure the charge point ID and same will appear when we search for the BLE -> (fixed).
+8) OTA enabled 
+9) WiFi connectivity  fixed.
+10)Change avalibilty added.
+11)ADC value in STATE C 1550.
+12)unavalible status notification Add for Change avalibilty.
+13)commissioning add for keep alive condition.
+14) ping pong enabled.
+15) heartbeat intervel multiplication factor updated.
+16) Fota URL dynamic update(only 4G). 
+
+/**************************************************************************************************************************************/
+
+
+
+
+
+
